@@ -1,0 +1,116 @@
+.navbar a{
+    padding: 0px;
+    font-size:30px;
+}
+.navbar-1{
+    /* border-bottom:1px solid gray; */
+}
+.left-clm {
+    background-color:#212529;
+    height:100%; 
+}
+.over-body{
+    background-color:gainsboro;
+    font-family: 'Bebas Neue', cursive;
+}
+.container-fluid .col-2{
+    padding-left:0px;
+    
+}
+.left-clm .btns{
+    padding-top:50px;
+    margin-bottom: 500px;
+   
+}
+.left-clm .btns button{
+    border: none;
+    background-color:#212529;
+    
+}
+.left-clm .btns .btn-top{
+    padding-top:15px;
+   
+}
+.left-clm .btns button:hover{
+    border: none;
+    background-color:#5f6366;
+    border-radius: 5px;
+}
+.left-clm .btns button a{
+   text-decoration: none;
+   padding-left:40px;
+   padding-right:40px;
+   color: white;
+   font-size:18px;
+   
+}
+.left-clm .btns button a i{
+   padding:10px;
+  
+}
+
+
+/* ==========RIGHT-CLM========== */
+.right-clm h1{
+    padding-top: 15px;
+}
+.right-clm .btn-add{
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+.right-clm .btn-add button{
+    background-color:#212529;
+    border: none;
+}
+.table i {
+    text-align: center;
+    text-decoration: none;
+    color:#333;
+}
+.table td a i{
+   padding: 5px;
+}
+/* ++++++++++++VIEW+++++++++++++++++++++ */
+.right-clm .del button{
+    font-size:20px;
+    border-radius:4px;
+    padding:0px 15px;
+    border:none;
+    background-color:#212529;
+    color: white;
+}
+.right-clm .del button:hover{
+    font-size:20px;
+    padding:0px 15px;
+    border:none;
+    background-color:#5f6366;
+    color:white;
+}
+.right-clm .del a{
+    text-decoration:none;
+    color:white;
+  
+}
+.right-clm .del a{
+    text-decoration:none;
+    color:white;
+  
+}
+.right-clm .del .back{
+   padding-right:20px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+.right-clm h2 {
+    font-size:25px;
+
+}
+
+/* +++++++++++++++++++++++UPDATE-PAGE+++++++++++ */
+.right-clm .upt-btn{
+    margin-bottom: 50px;
+}
+
+
+
+
