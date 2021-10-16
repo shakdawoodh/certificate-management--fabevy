@@ -1,0 +1,87 @@
+body{
+    background: url("../images/bg-image.jpg") fixed;
+    font-family: "Abel", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width: 450px) {
+    body {
+        padding: 15px;
+    }
+}
+/* ======================LOGIN============================== */
+.login{
+    width:450px;
+    height: 500px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    background-color: #ffffff30;
+    backdrop-filter: blur(4px);
+    border: 2px solid #ffffff30;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px #303e5c69;
+    padding:20px;
+    overflow: hidden;
+    
+}
+.login i {
+    color:#4b4b4b;
+    font-size:150px;
+    margin-bottom: 40px;
+    position: relative;
+    
+}
+
+.login input {
+    font-family: "Abel", sans-serif;
+    width: 90%;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid #ababab30;
+    background-color: #dedede;
+    color: #333;
+    margin: 10px 0;
+    padding: 0 15px;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+}
+
+.login input:focus {
+    border-color: #fff;
+    transition: 0.4s;
+}
+
+.login input::placeholder {
+    color: #acacac;
+    letter-spacing: 1px;
+}
+
+.login input:focus::placeholder {
+    opacity: 0;
+}
+
+.login .login-btn {
+    width: 100%;
+    height: 50px;
+    background-color: #4b4b4b;
+    border-radius: 5px;
+    margin: 15px 0;
+    font-size: 1.7em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+    box-shadow: 0 10px 20px #303e5c69;
+    cursor: pointer;
+    font-family: "Abel", sans-serif;
+}
+
+.login a {
+    color: #333;
+}
+

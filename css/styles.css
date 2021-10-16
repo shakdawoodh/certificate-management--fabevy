@@ -2,9 +2,10 @@
     padding: 0px;
     font-size:30px;
 }
-.navbar-1{
-    /* border-bottom:1px solid gray; */
+.navbar .logout a{
+    text-decoration: none;
 }
+
 .left-clm {
     background-color:#212529;
     height:100%; 

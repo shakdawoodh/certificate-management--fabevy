@@ -1,3 +1,9 @@
+<?php
+ session_start();
+ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==''){
+  header('Location:login.php?login=fail');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +35,11 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"> <img src="images/fabevy-logo.png" alt="logo"> </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          5C2E91  <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div  > <a style="text-decoration:none; color:#fff;   " href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
           </div>
         </div>
       </nav>
