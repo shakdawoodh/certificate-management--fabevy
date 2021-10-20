@@ -6,15 +6,21 @@
         $result =mysqli_query($conn,$sel_admin);
         $rowcount =mysqli_num_rows($result);
         $row = mysqli_fetch_array($result);
-            if($rowcount == 1){
+            if($rowcount ==1){
                 $_SESSION['admin_id']=$row['id'];
                 header('Location:index.php');
             }
  }
  $msg="";
- if(isset($_GET['login']) && $_GET['login']=='fail'){
-     $msg="Authentication Faild. Please Login.";
- }
+    if(isset($_GET['login']) && $_GET['login']=='fail'){
+        $msg="Authentication Faild. Please Login.";
+    }
+
+    if(isset($rowcount)  && $rowcount ==0){
+        $msg ="no id found!";
+    }
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +48,9 @@
         <button style="border:none;" type="submit" name="submit" value="submit">Login</button>
         <!-- <a href="#">Forgot Password?</a> -->
     </form>
+            <div class="signup_btn">
+                <!-- <h4><a href="#">signup now</a></h4> -->
+            </div>
    </div>
 </body>
 </html>
