@@ -39,13 +39,12 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div  > <a style="text-decoration:none; color:#fff;   " href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
+            <div  > <a style="text-decoration:none; color:#fff;" href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
           </div>
         </div>
       </nav>
     </div>
   </header>
-
 <!-- ============================LEFT----SIDE=============================== -->
 <div class="container-fluid">
   <div class="row">
@@ -77,9 +76,9 @@
        ?>
 
         <form name="student_details" id="emp_details" method="post">
-          <input type="hidden" name="form_post_flag" value="1">
-          course id<input class="form-control" name="course_courseid" id="course_courseid" type="text" value="<?php echo $row['courseid']; ?>"> <br>
-          course name<select class="form-control" name="course_coursename" id="course_coursename"><br>
+          <input type="hidden" name="form_post_flag" value="1" required>
+          course id<input class="form-control" name="course_courseid" id="course_courseid" required type="text" value="<?php echo $row['courseid']; ?>"> <br>
+          course name<select class="form-control" name="course_coursename" id="course_coursename" required><br>
           <option value="">select</option>
           <option value="FSD" <?php if($row['coursename']=='FSD') echo"selected" ?>>FSD</option>
           <option value="HTML/CSS" <?php if($row['coursename']=='HTML/CSS') echo"selected" ?>>HTML/CSS</option>
@@ -87,7 +86,7 @@
           <option value="JAVASRIPT" <?php if($row['coursename']=='JAVASRIPT') echo"selected" ?>>JAVASRIPT</option>
           <option value="jquery" <?php if($row['coursename']=='jquery') echo"selected" ?>>jquery</option>
           </select><br>
-          course description<input class="form-control" name="course_coursedescription" id="course_coursedescription" type="text" value="<?php echo $row['coursedescription']; ?>"><br>
+          course description<input class="form-control" name="course_coursedescription" id="course_coursedescription" type="text" required value="<?php echo $row['coursedescription']; ?>"><br>
            <div class="upt-btn">  <button style="background-color:#212529; color:white;" type="submit" onclick="return validate();" name="btn_submit" value="submit" class="btn  btn">Submit</button>
            <button  style="margin-left:10px; color:white;" type="cancel" onclick="return validate();" name="btn_submit" value="submit" class="btn btn-secondary ">cancel</button>
            </div>

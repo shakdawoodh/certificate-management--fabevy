@@ -80,17 +80,17 @@
 
         <form name="student_details" id="emp_details" method="post">
           <input type="hidden" name="form_post_flag" value="1">
-          Name<input class="form-control" name="student_name" id="student_name" type="text" value="<?php echo $row['name']; ?>"> <br>
-          batch id<input class="form-control" name="student_batchid" id="student_batchid" type="text" value="<?php echo $row['batchid']; ?>"><br>
-          student id<input class="form-control" name="student_studentid" id="student_student" type="text" value="<?php echo $row['studentid']; ?>">
-          age<input class="form-control" name="student_age" id="student_age" type="text" value="<?php echo $row['age']; ?>"><br>
-          gender<select class="form-control" name="student_gender" id="student_gender"><br>
+          Name<input class="form-control" name="student_name" id="student_name" type="text" required value="<?php echo $row['name']; ?>"> <br>
+          batch id<input class="form-control" name="student_batchid" id="student_batchid" type="text"required value="<?php echo $row['batchid']; ?>"><br>
+          student id<input class="form-control" name="student_studentid" id="student_student" type="text" required value="<?php echo $row['studentid']; ?>">
+          age<input class="form-control" name="student_age" id="student_age" type="text" required value="<?php echo $row['age']; ?>"><br>
+          gender<select class="form-control" name="student_gender" id="student_gender" required><br>
           <option value="">select</option>
           <option value="Male" <?php if($row['gender']=='Male') echo"selected" ?>>Male</option>
           <option value="Female" <?php if($row['gender']=='Female') echo"selected" ?>>Female</option>
           <option value="others" <?php if($row['gender']=='others') echo"selected" ?>>Others</option>
           </select><br>
-          qualification<select class="form-control" name="student_qualification" id="student_qualification"><br>
+          qualification<select class="form-control" name="student_qualification" id="student_qualification" required><br>
           <option value="">select</option>
           <option value="BE" <?php if($row['qualification']=='BE') echo"selected" ?>>BE</option>
           <option value="CSC" <?php if($row['qualification']=='CSC') echo"selected" ?>>CSC</option>
@@ -98,26 +98,26 @@
           <option value="BCOM" <?php if($row['qualification']=='BCOM') echo"selected" ?>>BCOM</option>
           <option value="Others" <?php if($row['qualification']=='Others') echo"selected" ?>>Others</option>
           </select><br> 
-          course<select class="form-control" name="student_course" id="student_course"><br>
+          course<select class="form-control" name="student_course" id="student_course" required><br>
           <option value="">select</option>
           <option value="FSD" <?php if($row['course']=='FSD') echo"selected" ?>>FSD</option>
           <option value="HTML/CSS" <?php if($row['course']=='HTML/CSS') echo"selected" ?>>HTML/CSS</option>
           <option value="Javasript" <?php if($row['course']=='Javasript') echo"selected" ?>>Javasript</option>
           <option value="PHP" <?php if($row['course']=='PHP') echo"selected" ?>>PHP</option>
           </select><br>
-           join date<input class="form-control" name="student_joindate" id="student_joindate" type="date" value="<?php echo $row['joindate']; ?>"><br>
-           class mode<select class="form-control" name="student_classmode" id="student_classmode"><br>
+           join date<input class="form-control" name="student_joindate" id="student_joindate" type="date" required value="<?php echo $row['joindate']; ?>"><br>
+           class mode<select class="form-control" name="student_classmode" id="student_classmode" required><br>
            <option value="">select</option>
            <option value="online" <?php if($row['classmode']=='online') echo"selected" ?>>online</option>
            <option value="offline" <?php if($row['classmode']=='offline') echo"selected" ?>>offline</option>
           </select><br> 
-          location<select class="form-control" name="student_location" id="student_location"><br>
+          location<select class="form-control" name="student_location" id="student_location"required><br>
            <option value="">select</option>
            <option value="chennai" <?php if($row['location']=='chennai') echo"selected" ?>>chennai</option>
            <option value="Pavoorchatram" <?php if($row['location']=='Pavoorchatram') echo"selected" ?>>Pavoorchatram</option>
           </select><br>
-          refer by<input class="form-control" name="student_referby" id="student_referby" type="text" value="<?php echo $row['referby']; ?>"><br>
-          refer contact<input class="form-control" name="student_refercontact" id="student_refercontact" type="text" value="<?php echo $row['refercontact']; ?>"><br>
+          refer by<input class="form-control" name="student_referby" id="student_referby" type="text" required value="<?php echo $row['referby']; ?>"><br>
+          refer contact<input class="form-control" name="student_refercontact" id="student_refercontact" type="text" required value="<?php echo $row['refercontact']; ?>"><br>
            <div class="upt-btn">  <button style="background-color:#212529; color:white;" type="submit" onclick="return validate();" name="btn_submit" value="submit" class="btn  btn">Submit</button>
            <button  style="margin-left:10px; color:white;" type="cancel" onclick="return validate();" name="btn_submit" value="submit" class="btn btn-secondary ">cancel</button>
            </div>

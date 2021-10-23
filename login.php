@@ -17,7 +17,7 @@
     }
 
     if(isset($rowcount)  && $rowcount ==0){
-        $msg ="no id found!";
+        $msg ="Please Enater Valid Username Or Password!";
     }
 
  
@@ -43,9 +43,9 @@
            <span> <strong><?php echo $msg; ?></strong></span>
            
         <input  type="hidden" name="form_post_flag" value="1">
-        <input style="color: #333;" name="username" type="text" placeholder="Enter Username" autocomplete="off">
-        <input style="color:#333;"  name="password" type="password" placeholder="Password" autocomplete="off">
-        <button style="border:none;" type="submit" name="submit" value="submit">Login</button>
+        <input style="color: #333;" name="username" type="text" placeholder="Enter Username" required autocomplete="off">
+        <input style="color:#333;"  name="password" type="password" placeholder="Password" required autocomplete="off">
+        <button class="login-btn" style="border:none;" type="submit" name="submit" value="submit">Login</button>
         <!-- <a href="#">Forgot Password?</a> -->
     </form>
             <div class="signup_btn">

@@ -1,7 +1,7 @@
 <?php
  session_start();
  if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==''){
-  header('Location:test.php?login=fail');
+  header('Location:login.php?login=fail');
 }
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
     <div class="navbar-1">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"> <img src="images/fabevy-logo.png" alt="logo"> </a>
+          <a class="navbar-brand" href="#"> <img src="images/fabevy-logo.png" alt="fabevy"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,6 +54,7 @@
           <div class="btns text-center">
             
             <button> <a href="index.php"><i class="fas fa-graduation-cap"></i>Students</a></button>
+            
             <div class="btn-top">
                 <button> <a href="course-index.php"><i style="padding-left:0px;" class="fas fa-book"></i>course</a></button>
 
@@ -69,6 +70,9 @@
              <div class="btn-add">
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-plus"></i>Add Student</button>
                </div>
+               <div class="certificate-btn">
+               <button class="btn"> <a href="student-certificate.php"><i class="fas fa-sticky-note"></i></i> certificates</a></button>
+               </div>
 
                                     <!-- Modal -->
              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,7 +81,7 @@
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Student Details</h5>
                     <?php 
-                        if(isset($_POST['from_post_flag'])&& $_POST['from_post_flag']==1){
+                    if(isset($_POST['from_post_flag'])&& $_POST['from_post_flag']==1){
                           $name = $_POST['name']; 
                           $batchid  =  $_POST['batchid']; 
                           $studentid = $_POST['studentid'];
@@ -103,23 +107,23 @@
                   <input name="from_post_flag" type="hidden" value="1">
                     <div class="mb-3">
                       <label for="name" class="form-label">Name</label>
-                      <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                      <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                       <label for="batchid" class="form-label">batch id</label>
-                      <input name="batchid" type="text" class="form-control" id="batchid">
+                      <input name="batchid" type="text" class="form-control" id="batchid" required>
                     </div>
                     <div class="mb-3">
                       <label for="studentid" class="form-label">student id</label>
-                      <input name="studentid" type="text" class="form-control" id="studentid">
+                      <input name="studentid" type="text" class="form-control" id="studentid" required>
                     </div>
                     <div class="mb-3">
                       <label for="age" class="form-label">age</label>
-                      <input name="age" type="text" class="form-control" id="age">
+                      <input name="age" type="text" class="form-control" id="age" required>
                     </div>
                     <div class="mb-3">
                       <label for="gender" class="form-label">gender </label>
-                      <select class="form-control" name="gender" id="gender"><br>
+                      <select class="form-control" name="gender" id="gender" required><br>
                           <option value="">select</option>
                           <option >Male</option>
                           <option >Female</option>
@@ -129,7 +133,7 @@
                     </div>  
                     <div class="mb-3">
                       <label for="qualification" class="form-label">qualification</label>
-                      <select class="form-control" name="qualification" id="qualification"><br>
+                      <select class="form-control" name="qualification" id="qualification" required><br>
                           <option value="">select</option>
                           <option >BE</option>
                           <option >CSC</option>
@@ -141,7 +145,7 @@
                     </div>  
                     <div class="mb-3">
                       <label for="course" class="form-label">course</label>
-                      <select class="form-control" name="course" id="course"><br>
+                      <select class="form-control" name="course" id="course" required><br>
                           <option value="">select</option>
                           <option >FSD</option>
                           <option >HTML/CSS</option>
@@ -152,11 +156,11 @@
                     </div> 
                      <div class="mb-3">
                       <label for="joindate" class="form-label">join date</label>
-                      <input name="joindate" type="date" class="form-control" id="jaindate">
+                      <input name="joindate" type="date" class="form-control" id="jaindate" required>
                     </div> 
                     <div class="mb-3">
                       <label for="classmode" class="form-label">class mode</label>
-                      <select class="form-control" name="classmode" id="classmode">
+                      <select class="form-control" name="classmode" id="classmode" required>
                           <option value="">select</option>
                           <option >online</option>
                           <option >offline</option>
@@ -164,7 +168,7 @@
                     </div> 
                     <div class="mb-3">
                       <label for="location" class="form-label">location</label>
-                      <select class="form-control" name="location" id="location">
+                      <select class="form-control" name="location" id="location" required>
                           <option value="">select</option>
                           <option >chennai</option>
                           <option >Pavoorchatram</option>
@@ -172,11 +176,11 @@
                     </div>
                      <div class="mb-3">
                       <label for="referby" class="form-label">refer by</label>
-                      <input name="referby" type="text" class="form-control" id="referby">
+                      <input name="referby" type="text" class="form-control" id="referby" required>
                     </div> 
                     <div class="mb-3">
                       <label for="refercontact" class="form-label">refer contact</label>
-                      <input name="refercontact" type="text" class="form-control" id="refercontact">
+                      <input name="refercontact" type="text" class="form-control" id="refercontact" required>
                     </div>
                    
                   
@@ -200,13 +204,11 @@
                 if(isset($_GET['update']) && $_GET['update']=='succ'){
                     $msg="Your Record Has Been updated Successfully.";
                 } 
-                 if(isset($_GET['add']) && $_GET['add']=='succ'){
-                    $msg="Your Record Has Been added Successfully.";
-                }
-               
-                
+                if(isset($_GET['add']) && $_GET['add']=='succ'){
+                  $msg="Your Record Has Been added Successfully.";
+              } 
         ?>
-        <div class="text-center">
+         <div class="text-center">
         <h4 class="animate__bounceout"> <?php echo $msg; ?></h4>
         </div>
        

@@ -39,7 +39,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div  > <a style="text-decoration:none; color:#fff;   " href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
+            <div  > <a style="text-decoration:none; color:#fff;" href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
           </div>
         </div>
       </nav>
@@ -94,12 +94,12 @@
                   <input name="from_post_flag" type="hidden" value="1">
                     <div class="mb-3">
                       <label for="courseid" class="form-label">course id</label>
-                      <input name="courseid" type="text" class="form-control" id="courseid" aria-describedby="emailHelp">
+                      <input name="courseid" type="text" class="form-control" id="courseid" aria-describedby="emailHelp" required>
                     </div>
              
                     <div class="mb-3">
                       <label for="coursename" class="form-label">course name </label>
-                      <select class="form-control" name="coursename" id="coursename"><br>
+                      <select class="form-control" name="coursename" id="coursename" required><br>
                           <option value="">select</option>
                           <option >FSD</option>
                           <option >HTML/CSS</option>
@@ -110,7 +110,7 @@
                     </div>  
                      <div class="mb-3">
                       <label for="coursedescription" class="form-label">course description</label>
-                      <input name="coursedescription" type="text" class="form-control" id="coursedescription">
+                      <input name="coursedescription" type="text" class="form-control" id="coursedescription" required>
                     </div> 
                  
                
