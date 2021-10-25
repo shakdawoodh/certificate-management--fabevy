@@ -7,9 +7,9 @@
         $rowcount =mysqli_num_rows($result);
         $row = mysqli_fetch_array($result);
             if($rowcount ==1){
-                $_SESSION['admin_id']=$row['id'];
+                $_SESSION['admin_id']=$row['status'];
                 header('Location:index.php');
-            }
+            } 
  }
  $msg="";
     if(isset($_GET['login']) && $_GET['login']=='fail'){
@@ -18,9 +18,8 @@
 
     if(isset($rowcount)  && $rowcount ==0){
         $msg ="Please Enater Valid Username Or Password!";
-    }
+    } 
 
- 
 ?>
 
 <!DOCTYPE html>

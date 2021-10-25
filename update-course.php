@@ -3,6 +3,9 @@
  if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==''){
   header('Location:login.php?login=fail');
 }
+if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
+  header('Location:student-page.php?login=student_login');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +14,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +42,8 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div  > <a style="text-decoration:none; color:#fff;" href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
+            <div> <a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
+            
           </div>
         </div>
       </nav>

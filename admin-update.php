@@ -42,14 +42,12 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div><a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
-            
+            <div  > <a style="text-decoration:none; color:#fff;" href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
           </div>
         </div>
       </nav>
     </div>
   </header>
-
 <!-- ============================LEFT----SIDE=============================== -->
 <div class="container-fluid">
   <div class="row">
@@ -67,37 +65,51 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
     </div>
     <div class="col-10">
       <div class="right-clm">
-          <?php
+      <h1>Update user Details.</h1>
+      <?php
           $conn=mysqli_connect("localhost","root","","fabevy");
           if(isset($_POST['form_post_flag']) && $_POST['form_post_flag']==1){
-              $update_query="update certificates set name= '".$_POST['student_name']."', batchid= '".$_POST['student_batchid']."', course= '".$_POST['student_course']."', 
-              date= '".$_POST['student_date']."' where id=".$_GET['id'];
-              $result=mysqli_query($conn,$update_query);
-              header("Location:student-certificate.php?updatecc=succ");
-            }
-            $sel_query="select * from certificates where id=".$_GET['id'];
-            $result=mysqli_query($conn,$sel_query);
-            $row=mysqli_fetch_array($result);
-            ?>
-        <h1>"<?php echo $row['name']; ?>" course complition certificate </h1>
-        <div class="student-name">  
-          <h2><?php echo $row['name']; ?></h2>
-        </div>
-        <div class="student-course">  
-          <h2><?php echo $row['course']; ?></h2>
-        </div> 
-        <div class="student-date">  
-          <h2><?php echo $row['date']; ?></h2>
-        </div> 
-        <div class="student-batchid">  
-          <h2>student batch id : <?php echo $row['batchid']; ?></h2>
-        </div>
-      <div class="certificate-img">
-      <img width="100%" src="images/certificate-bg.PNG" alt="certificate">
-      </div>
-      <div class="ok-btn">
-        <a class="btn btn-dark" href="student-certificate.php">back</a>
-      </div>
+          $update_query="update admin set username= '".$_POST['admin_username']."', password= '".$_POST['admin_password']."', status = '".$_POST['admin_status']."', mailid= '".$_POST['admin_mailid']."', name= '".$_POST['admin_name']."', deportment= '".$_POST['admin_deportment']."', phonenumber= '".$_POST['admin_phonenumber']."' , handlertype= '".$_POST['admin_handlertype']."' where id=".$_GET['id'];
+          $result=mysqli_query($conn,$update_query);
+          header("Location:admin-page.php?update-admin=succ");
+          }
+          $sel_query="select * from admin where id=".$_GET['id'];
+          $result=mysqli_query($conn,$sel_query);
+          $row=mysqli_fetch_array($result);
+       ?>
+
+        <form name="student_details" id="emp_details" method="post">
+          <input type="hidden" name="form_post_flag" value="1" required>
+          user name<input class="form-control" name="admin_username" id="admin_username" required type="text" value="<?php echo $row['username']; ?>"> <br>
+          password<input class="form-control" name="admin_password" id="admin_password" required type="text" value="<?php echo $row['password']; ?>"> <br>
+          user type<select class="form-control" name="admin_status" id="admin_status" required><br>
+          <option value="">select</option>
+          <option value="1" <?php if($row['status']=='1') echo"selected" ?>>staff</option>
+          <option value="2" <?php if($row['status']=='2') echo"selected" ?>>student</option>
+          </select><br>
+          mail id<input class="form-control" name="admin_mailid" id="admin_mailid" type="text" required value="<?php echo $row['mailid']; ?>"><br>
+          full name<input class="form-control" name="admin_name" id="admin_name" type="text" required value="<?php echo $row['name']; ?>"><br>
+          deportment <select class="form-control" name="admin_deportment" id="admin_deportment" required><br>
+          <option value="">select</option>
+          <option value="FSD" <?php if($row['deportment']=='FSD') echo"selected" ?>>FSD</option>
+          <option value="HTML/CSS" <?php if($row['deportment']=='HTML/CSS') echo"selected" ?>>HTML/CSS</option>
+          <option value="PHP/LARAVEL" <?php if($row['deportment']=='PHP/LARAVEL') echo"selected" ?>>PHP/LARAVEL</option>
+          <option value="JAVASRIPT" <?php if($row['deportment']=='JAVASRIPT') echo"selected" ?>>JAVASRIPT</option>
+          <option value="JQUERY" <?php if($row['deportment']=='JQUERY') echo"selected" ?>>JQUERY</option>
+          </select><br>
+          phone number<input class="form-control" name="admin_phonenumber" id="admin_phonenumber" type="text" required value="<?php echo $row['phonenumber']; ?>"><br>
+          handler type<input class="form-control" name="admin_handlertype" id="admin_handlertype" type="text" required value="<?php echo $row['name']; ?>"><br>
+           <div class="upt-btn">  <button style="background-color:#212529; color:white;" type="submit" onclick="return validate();" name="btn_submit" value="submit" class="btn  btn">Submit</button>
+           <button  style="margin-left:10px; color:white;" type="cancel" onclick="return validate();" name="btn_submit" value="submit" class="btn btn-secondary ">cancel</button>
+           </div>
+           
+          
+
+        </form>
+
+
+
+
               </div>
             </div>
 </div>
@@ -105,10 +117,11 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
     </div>
       
     </div>
+  
 <script>
     function checkdelete(studid){
         if(confirm('Are you sure you want to delete')){
-            window.location.href="student-new.php?id="+studid;
+            window.location.href="course-index.php?id="+studid;
             return true;
         }
         else

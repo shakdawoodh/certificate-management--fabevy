@@ -3,6 +3,9 @@
  if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==''){
   header('Location:login.php?login=fail');
 }
+if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
+  header('Location:student-page.php?login=student_login');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +42,8 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div  > <a style="text-decoration:none; color:#fff;" href="logout.php"><i class="fas fa-sign-out-alt"></i></a></div>
+            <div> <a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
+            
           </div>
         </div>
       </nav>

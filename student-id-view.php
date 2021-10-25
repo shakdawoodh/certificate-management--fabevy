@@ -3,9 +3,7 @@
  if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==''){
   header('Location:login.php?login=fail');
 }
-if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
-  header('Location:student-page.php?login=student_login');
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,73 +40,70 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div><a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
+            <div> <a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
             
           </div>
         </div>
       </nav>
     </div>
   </header>
-
 <!-- ============================LEFT----SIDE=============================== -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-2">
       <div class="left-clm">
-          <div class="btns text-center">
-            
-            <button> <a href="index.php"><i class="fas fa-graduation-cap"></i>Students</a></button>
-            <div class="btn-top">
-                <button> <a href="course-index.php"><i style="padding-left:0px;" class="fas fa-book"></i>course</a></button>
-
-              </div>
-            </div>
       </div>
     </div>
-    <div class="col-10">
-      <div class="right-clm">
-          <?php
-          $conn=mysqli_connect("localhost","root","","fabevy");
-          if(isset($_POST['form_post_flag']) && $_POST['form_post_flag']==1){
-              $update_query="update certificates set name= '".$_POST['student_name']."', batchid= '".$_POST['student_batchid']."', course= '".$_POST['student_course']."', 
-              date= '".$_POST['student_date']."' where id=".$_GET['id'];
-              $result=mysqli_query($conn,$update_query);
-              header("Location:student-certificate.php?updatecc=succ");
-            }
-            $sel_query="select * from certificates where id=".$_GET['id'];
-            $result=mysqli_query($conn,$sel_query);
-            $row=mysqli_fetch_array($result);
-            ?>
-        <h1>"<?php echo $row['name']; ?>" course complition certificate </h1>
-        <div class="student-name">  
-          <h2><?php echo $row['name']; ?></h2>
-        </div>
-        <div class="student-course">  
-          <h2><?php echo $row['course']; ?></h2>
-        </div> 
-        <div class="student-date">  
-          <h2><?php echo $row['date']; ?></h2>
-        </div> 
-        <div class="student-batchid">  
-          <h2>student batch id : <?php echo $row['batchid']; ?></h2>
-        </div>
-      <div class="certificate-img">
-      <img width="100%" src="images/certificate-bg.PNG" alt="certificate">
-      </div>
-      <div class="ok-btn">
-        <a class="btn btn-dark" href="student-certificate.php">back</a>
-      </div>
-              </div>
+ <div class="col-10">
+ <div class="right-clm">
+      <?php 
+        $conn=mysqli_connect("localhost","root","","fabevy");
+        $sel_query="select * from student where id=".$_GET['id'];
+        $result=mysqli_query($conn,$sel_query);
+        $row=mysqli_fetch_array($result);
+        ?>
+      <h1>informations about  '<?php echo$row['name'];?>'.</h1>
+    <div class="text-start btn-add">
+    <div class="del d-flex">
+            <div class="back">
+            <button> <a href="student-page.php">BACK</a></button>
             </div>
+            
+        </div>
+      </div>
+      <table>
+
+        <thead class="d-flex" >
+          <tr class="view">
+            <div class="container">
+               <h2>name :<span> <?php echo$row['name'];?></span></h2>
+               <h2>batch id :<span> <?php echo$row['batchid'];?></span></h2>
+               <h2>student id :<span> <?php echo$row['studentid'];?></span></h2>
+               <h2>age :<span> <?php echo$row['age'];?></span></h2>
+               <h2>gender :<span> <?php echo$row['gender'];?></span></h2>
+               <h2>qualification :<span> <?php echo$row['qualification'];?></span></h2>
+               <h2>course :<span> <?php echo$row['course'];?></span></h2>
+               <h2>joindate :<span> <?php echo$row['joindate'];?></span></h2>
+               <h2>classmode :<span> <?php echo$row['classmode'];?></span></h2>
+               <h2>location :<span> <?php echo$row['location'];?></span></h2>
+               <h2>refer by :<span> <?php echo$row['referby'];?></span></h2>
+               <h2>refer contact :<span> <?php echo$row['refercontact'];?></span></h2>
+            </div>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
 </div>
 
     </div>
       
     </div>
+  
 <script>
     function checkdelete(studid){
         if(confirm('Are you sure you want to delete')){
-            window.location.href="student-new.php?id="+studid;
+            window.location.href="index.php.php?id="+studid;
             return true;
         }
         else

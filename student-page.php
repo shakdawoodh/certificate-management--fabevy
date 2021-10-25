@@ -3,9 +3,7 @@
  if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==''){
   header('Location:login.php?login=fail');
 }
-if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
-  header('Location:student-page.php?login=student_login');
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,55 +30,37 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
 
 <body> 
   <div class=over-body>
-              <!-- HEADER  -->
-    
+                       <!-- HEADER  -->
 <header>
-  
     <div class="navbar-1">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"> <img src="images/fabevy-logo.png" alt="fabevy"> </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        
-            <div><a style="text-decoration:none; color:#fff; padding-left:15px;   " href="admin-page.php"><i style="font-size:20px;" class="fas fa-users-cog"></i></a>  <a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div><a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
+            
           </div>
         </div>
       </nav>
     </div>
   </header>
- 
 
 <!-- ============================LEFT----SIDE=============================== -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-2">
       <div class="left-clm">
-          <div class="btns text-center">
-            
-            <button> <a href="index.php"><i class="fas fa-graduation-cap"></i>Students</a></button>
-            
-            <div class="btn-top">
-                <button> <a href="course-index.php"><i style="padding-left:0px;" class="fas fa-book"></i>course</a></button>
-
-              </div>
-            </div>
+         
       </div>
     </div>
  <div class="col-10">
       <div class="right-clm">
       <h1>Students Details.</h1>
       <div class="text-start btn-add">
-                           <!-- Button trigger modal -->
-             <div class="btn-add">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-plus"></i>Add Student</button>
-               </div>
-               <div class="certificate-btn">
-               <button class="btn"> <a href="student-certificate.php"><i class="fas fa-sticky-note"></i></i> certificates</a></button>
-               </div>
-
+          
                                     <!-- Modal -->
              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -254,7 +234,7 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
             <td><?php echo$row['location'];?></td>
             <td><?php echo$row['referby'];?></td>
             <td><?php echo$row['refercontact'];?></td>
-            <td> <a href="update-student.php ?id=<?php echo$row['id'];?>"><i class="fas fa-pencil-alt"></i></a>   <a href="view-student-data.php?id=<?php echo$row['id'];?>"><i class="fas fa-eye"></i></a>  <a href="delete-student.php ?id=<?php echo$row['id'];?>" onclick="checkdelete(<?php echo $row['id'];?>);"><i class="fas fa-trash-alt"></i></a></td> 
+            <td><a href="student-id-view.php?id=<?php echo$row['id'];?>"><i class="fas fa-eye"></i></a> </td> 
           </tr>
           <?php } ?>
          
