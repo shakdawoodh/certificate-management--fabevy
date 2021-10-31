@@ -58,7 +58,7 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
                         }
                         ?>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div><a style="text-decoration:none; color:#fff; padding-left:15px;   " href="admin-page.php"><i style="font-size:20px;" class="fas fa-users-cog"></i></a> <a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
+            <div> <a style="text-decoration:none; color:#fff; padding-left:15px;   " href="logout.php"><i  style="font-size:20px;" class="fas fa-sign-out-alt"></i></a></div>
             
           </div>
         </div>
@@ -113,7 +113,6 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
                          mysqli_query($connection,$query);
                         }
                         ?>
-
                   </div>  
                   <div class="modal-body ">
                   <form action="admin-page.php" method="post">
@@ -190,7 +189,7 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
                 if(isset($_GET['user']) && $_GET['user']=='succ'){
                     $msg="User Has Been created Successfully.";
                 } 
-                if(isset($_GET['update-admin']) && $_GET['update-admin']=='succ'){
+                if(isset($_GET['updateadmin']) && $_GET['updateadmin']=='succ'){
                       $msg="User data Has Been updated Successfully.";
                   } 
                 if(isset($_GET['del-admin']) && $_GET['del-admin']=='succ'){
@@ -230,8 +229,7 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
             <td><?php echo$row['handlertype'];?></td>
             <td> <a href="admin-update.php ?id=<?php echo$row['id'];?>"><i class="fas fa-pencil-alt"></i></a>  <a href="delete-admin.php ?id=<?php echo$row['id'];?>" onclick="checkdelete(<?php echo $row['id'];?>);"><i class="fas fa-trash-alt"></i></a></td> 
           </tr>
-          <?php } ?>
-         
+          <?php } ?>  
         </tbody>
       </table>
     </div>

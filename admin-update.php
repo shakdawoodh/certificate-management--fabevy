@@ -71,7 +71,7 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
           if(isset($_POST['form_post_flag']) && $_POST['form_post_flag']==1){
           $update_query="update admin set username= '".$_POST['admin_username']."', password= '".$_POST['admin_password']."', status = '".$_POST['admin_status']."', mailid= '".$_POST['admin_mailid']."', name= '".$_POST['admin_name']."', deportment= '".$_POST['admin_deportment']."', phonenumber= '".$_POST['admin_phonenumber']."' , handlertype= '".$_POST['admin_handlertype']."' where id=".$_GET['id'];
           $result=mysqli_query($conn,$update_query);
-          header("Location:admin-page.php?update-admin=succ");
+          header("Location:admin-page.php?updateadmin=succ");
           }
           $sel_query="select * from admin where id=".$_GET['id'];
           $result=mysqli_query($conn,$sel_query);
@@ -100,7 +100,8 @@ if(!isset($_SESSION['admin_id']) || $_SESSION['admin_id']==2){
           phone number<input class="form-control" name="admin_phonenumber" id="admin_phonenumber" type="text" required value="<?php echo $row['phonenumber']; ?>"><br>
           handler type<input class="form-control" name="admin_handlertype" id="admin_handlertype" type="text" required value="<?php echo $row['name']; ?>"><br>
            <div class="upt-btn">  <button style="background-color:#212529; color:white;" type="submit" onclick="return validate();" name="btn_submit" value="submit" class="btn  btn">Submit</button>
-           <button  style="margin-left:10px; color:white;" type="cancel" onclick="return validate();" name="btn_submit" value="submit" class="btn btn-secondary ">cancel</button>
+           
+           <button  style="margin-left:10px; color:white;" type="cancel" class="btn btn-secondary ">cancel</button>
            </div>
            
           
